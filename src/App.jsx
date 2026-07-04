@@ -17,6 +17,7 @@ import finishedKitchenImage from './assets/handyman-site-images/finished-kitchen
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+const SITE_ACCESS_CODE = import.meta.env.VITE_SITE_ACCESS_CODE || 'HANDYMAN2026'
 
 const services = [
   {
@@ -82,6 +83,62 @@ const galleryItems = [
 function App() {
   const bookingFormRef = useRef(null)
   const [submitStatus, setSubmitStatus] = useState('idle')
+  const [accessCode, setAccessCode] = useState('')
+  const [accessError, setAccessError] = useState('')
+  const [isUnlocked, setIsUnlocked] = useState(() => {
+    return window.localStorage.getItem('handyman_site_access') === 'granted'
+  })
+
+  const handleAccessSubmit = (event) => {
+    event.preventDefault()
+
+    if (accessCode.trim() === SITE_ACCESS_CODE) {
+      window.localStorage.setItem('handyman_site_access', 'granted')
+      setIsUnlocked(true)
+      setAccessError('')
+      return
+    }
+
+    setAccessError('That access code did not work. Please check your invite and try again.')
+  }
+
+  if (!isUnlocked) {
+    return (
+      <main className="access-gate">
+        <section className="access-card">
+          <span className="brand-mark">H</span>
+          <p className="eyebrow">Invite-only preview</p>
+          <h1>Handyman Services Preview</h1>
+          <p>
+            This website is currently private. Enter the access code from your invite
+            to view the booking site.
+          </p>
+
+          <form className="access-form" onSubmit={handleAccessSubmit}>
+            <label>
+              Access code
+              <input
+                type="password"
+                value={accessCode}
+                onChange={(event) => setAccessCode(event.target.value)}
+                placeholder="Enter access code"
+                autoComplete="off"
+                required
+              />
+            </label>
+
+            <button type="submit">View Website</button>
+
+            {accessError && (
+              <p className="access-error" role="alert">
+                {accessError}
+              </p>
+            )}
+          </form>
+        </section>
+      </main>
+    )
+  }
 
   const handleBookingSubmit = async (event) => {
     event.preventDefault()

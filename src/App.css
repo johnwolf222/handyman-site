@@ -998,3 +998,90 @@ h3 {
   border: 1px solid rgba(220, 38, 38, 0.2);
 }
 /* === end-step-006-booking-email-form === */
+
+/* === step-015-invite-access-gate === */
+.access-gate {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+  background:
+    linear-gradient(90deg, rgba(7, 26, 51, 0.96), rgba(7, 26, 51, 0.82)),
+    radial-gradient(circle at 82% 18%, rgba(248, 197, 55, 0.3), transparent 24%),
+    var(--hero-image, linear-gradient(135deg, #071a33, #102c54));
+  color: var(--white);
+}
+
+.access-card {
+  width: min(100%, 520px);
+  padding: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(18px);
+}
+
+.access-card h1 {
+  margin: 18px 0 16px;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.access-card p {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.7;
+}
+
+.access-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.access-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.access-form input {
+  width: 100%;
+  min-height: 54px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--navy);
+  padding: 0 16px;
+  outline: none;
+}
+
+.access-form input:focus {
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 4px rgba(248, 197, 55, 0.18);
+}
+
+.access-form button {
+  min-height: 54px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--yellow);
+  color: var(--navy);
+  cursor: pointer;
+  font-weight: 950;
+}
+
+.access-error {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(248, 197, 55, 0.32);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white) !important;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+/* === end-step-015-invite-access-gate === */
