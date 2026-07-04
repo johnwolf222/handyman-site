@@ -1151,3 +1151,101 @@ h3 {
   }
 }
 /* === end-step-018-clean-sticky-navigation === */
+
+/* === step-020-mobile-nav-links === */
+@media (max-width: 760px) {
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    row-gap: 10px;
+    padding: 10px 12px 12px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nav-call {
+    justify-self: end;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .nav-links {
+    grid-column: 1 / -1;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .nav-links a {
+    flex: 1;
+    padding: 9px 6px;
+    border-radius: 999px;
+    text-align: center;
+    font-size: 0.86rem;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .hero-content {
+    padding-top: 170px;
+  }
+
+  #services,
+  #work,
+  #booking,
+  #contact {
+    scroll-margin-top: 150px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand span:last-child {
+    max-width: 145px;
+  }
+
+  .nav-links {
+    gap: 6px;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    padding: 8px 4px;
+  }
+
+  .hero-content {
+    padding-top: 178px;
+  }
+}
+/* === end-step-020-mobile-nav-links === */
+
+/* === step-021-mobile-call-row === */
+@media (max-width: 760px) {
+  .brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .nav-call {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+  }
+
+  .nav-links {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+/* === end-step-021-mobile-call-row === */
